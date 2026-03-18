@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GitHub Repo Report - {{ date }}</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1, h2 { text-align: center; }
+        .summary { margin: 20px 0; }
+        .summary p { font-size: 1.1em; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ccc; padding: 8px; text-align: center; }
+        th { background-color: #f2f2f2; }
+        img { display: block; margin: 20px auto; max-width: 600px; width: 100%; }
+    </style>
+</head>
+<body>
+    <h1>GitHub Repository Stats Report</h1>
+    <p>Date: {{ date }}</p>
+
+    <div class="summary">
+        <h2>Summary</h2>
+        <p>Total Stars: {{ total_stars }}</p>
+        <p>Total Forks: {{ total_forks }}</p>
+        <p>Total Open Issues: {{ total_issues }}</p>
+        <p>Total Watchers: {{ total_watchers }}</p>
+    </div>
+
+    <h2>Top Repositories Charts</h2>
+    <img src="{{ stars_chart }}" alt="Stars chart">
+    <img src="{{ forks_chart }}" alt="Forks chart">
+    <img src="{{ stars_pie_chart }}" alt="Stars proportion pie chart">
+
+    <h2>Repository Details</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Repository</th>
+                <th>Stars</th>
+                <th>Forks</th>
+                <th>Open Issues</th>
+                <th>Watchers</th>
+                <th>Last Push</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for repo in stats %}
+            <tr>
+                <td>{{ repo.repo_name }}</td>
+                <td>{{ repo.stars }}</td>
+                <td>{{ repo.forks }}</td>
+                <td>{{ repo.issues }}</td>
+                <td>{{ repo.watchers }}</td>
+                <td>{{ repo.last_push }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
