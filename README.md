@@ -55,3 +55,4 @@ Lots of features can be added or improved, such as
 ## Example output
 In its current state, the code tracks 15 of the most used repositories on github, and the report looks like this:
 ![Example report](resources/github_report_2026-03-18-1.png)
+![Example report](resources/github_report_2026-03-18-2.png)
